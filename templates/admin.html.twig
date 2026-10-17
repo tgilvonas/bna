@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    {% trans_default_domain 'admin' %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ 'admin_panel'|trans }}</title>
+        <link rel="stylesheet" type="text/css" href="/assets-dist/backend/main.css">
+    </head>
+    <body>
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/admin/dashboard">BNA</a>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {# <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> #}
+            <div class="navbar-nav">
+                <div class="nav-item text-nowrap">
+                    <a class="nav-link px-3" href="{{ path('admin_logout') }}">{{ 'logout'|trans }}</a>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse min-vh-100 position-fixed">
+                    <div class="position-sticky pt-3">
+                        <ul class="nav flex-column">
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EDITOR') %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('admin_article_index') }}">
+                                        {{ 'articles'|trans }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_EDITOR') %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('admin_tag_index') }}">
+                                        {{ 'tags'|trans }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('admin_category_index') }}">
+                                        {{ 'categories'|trans }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_MARKETING_MANAGER') %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('admin_banner_index') }}">
+                                        {{ 'banners'|trans }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_SUPER_ADMIN') == false and (is_granted('ROLE_EDITOR') or is_granted('ROLE_MARKETING_MANAGER')) %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('admin_profile') }}">
+                                        {{ 'my_profile'|trans }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('admin_index') }}">
+                                        {{ 'admins'|trans }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </nav>
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="pt-3 pb-2 mb-3">
+                        {% for message in app.flashes('error') %}
+                            <div class="alert alert-danger mb-3">
+                                {{ message|trans }}
+                            </div>
+                        {% endfor %}
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success mb-3">
+                                {{ message|trans }}
+                            </div>
+                        {% endfor %}
+                        {% block body %}{% endblock %}
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>

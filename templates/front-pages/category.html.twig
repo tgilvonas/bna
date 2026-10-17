@@ -1,0 +1,8 @@
+{% extends 'front-pages.html.twig' %}
+
+{% block meta_description %}{{ articles.0.category.categoryDescription }}{% endblock %}
+{% block meta_keywords %}{{ articles.0.category.categoryKeywords }}{% endblock %}
+
+{% block body %}
+    {% include 'front-pages/partials/articles.html.twig' %}
+{% endblock %}

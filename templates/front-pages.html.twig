@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    {% trans_default_domain 'frontpages' %}
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{{ 'bezdoniskis_news_agency'|trans }}{% endblock %}</title>
+        <meta name="description" content="{% block meta_description %}{{ 'bezdoniskis_news_agency'|trans }}{% endblock %}">
+        <meta name="keywords" content="{% block meta_keywords %}{{ 'bezdoniskis_news_agency'|trans }}{% endblock %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/bna-favicon.png">
+        <link rel="stylesheet" type="text/css" href="/assets-dist/frontend/frontend-main.css">
+    </head>
+    <body>
+        {% set categories = category_repo.getAllActive() %}
+        <nav class="mobile-touch-menu">
+            <div class="close-menu-btn-wrapper">
+                <button class="close-mobile-menu">&times;</button>
+            </div>
+            <ul class="">
+                {% for category in categories %}
+                    <li>
+                        <a href="{{ path('category', { 'slug': category.categoryUrl }) }}">{{ category.categoryName }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <div class="main-wrapper">
+            <div class="header">
+                <a href="/">
+                    <img src="/img/bna-logo.png" alt="BNA" class="site-header-logo">
+                </a>
+            </div>
+            <div class="main-menu-wrapper display-flex">
+                <button class="mobile-menu-opener">&Congruent;</button>
+                <ul class="main-menu display-flex">
+                    {% for category in categories %}
+                        <li>
+                            <a href="{{ path('category', { 'slug': category.categoryUrl }) }}">{{ category.categoryName }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <form class="search-form" method="get" action="{{ path('search') }}">
+                    <input type="text" name="search" placeholder="{{ 'search'|trans }}...">
+                    <button type="submit" class="btn-search">
+                        <img src="/img/icon-search.svg" alt="Search" />
+                    </button>
+                </form>
+            </div>
+            <div class="main-content display-flex">
+                <div class="articles articles-in-column">
+                    {% block body %}{% endblock %}
+                </div>
+                <div class="side-banners">
+                    {% for banner in banner_repo.getActiveBanners %}
+                        <div class="banner-wrapper">
+                            <a href="{{ banner.url }}" {% if banner.innew %} target="_blank" {% endif %}>
+                                <img src="/uploads/banners/{{ banner.img }}" alt="Banner" />
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <footer>
+                &copy; {{ 'bezdoniskis_news_agency'|trans }}, {{ 'now'|date('Y') }}
+            </footer>
+        </div>
+        <script type="text/javascript" src="/assets-dist/frontend/frontend-main.js"></script>
+    </body>
+</html>

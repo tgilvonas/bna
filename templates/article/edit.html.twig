@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% trans_default_domain 'admin' %}
+
+{% block body %}
+    {% if article.imgOriginal %}
+        <div class="mb-3">
+            <img src="/uploads/articles/{{ article.imgOriginal }}" alt="" style="max-width: 350px;" />
+        </div>
+    {% endif %}
+    {{ form(form) }}
+    <script src="/assets-dist/backend/editor.js"></script>
+{% endblock %}

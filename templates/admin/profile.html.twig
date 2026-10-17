@@ -1,0 +1,8 @@
+{% extends 'admin.html.twig' %}
+
+{% trans_default_domain 'admin' %}
+
+{% block body %}
+    <h1>{{ 'my_profile'|trans }}</h1>
+    {{ form(form) }}
+{% endblock %}

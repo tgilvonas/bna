@@ -1,0 +1,8 @@
+{% extends 'front-pages.html.twig' %}
+
+{% trans_default_domain 'frontpages' %}
+
+{% block body %}
+    <div class="default-padding">{{ 'search_results_by'|trans }}: "{{ search_word }}"</div>
+    {% include 'front-pages/partials/articles.html.twig' %}
+{% endblock %}

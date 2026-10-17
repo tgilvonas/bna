@@ -1,0 +1,213 @@
+html { font-size: 16px; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; margin: var(--default-margin) 0; }
+p { font-size: 1rem; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+li { font-size: 1rem; }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: var(--gray);
+  color: var(--black);
+}
+
+.clearfix { clear: both; }
+
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--white);
+}
+
+.display-flex {
+  display: flex;
+}
+
+.header {
+  height: 187px;
+  background-image: url('/img/bna-header.jpg');
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .site-header-logo {
+    margin: 27px 0 0 22px;
+  }
+}
+
+.main-menu-wrapper {
+  background: rgb(0,0,119);
+  background: var(--bg-gradient);
+  .mobile-menu-opener {
+    display: none;
+    width: 34px;
+    text-align: center;
+  }
+  .main-menu {
+    padding: 0 0 0 var(--default-padding);
+    margin: 0;
+    list-style-type: none;
+    li {
+      a {
+        display: inline-block;
+        padding: var(--default-padding);
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: var(--white);
+      }
+    }
+  }
+}
+
+.search-form {
+  margin-left: auto;
+  padding: var(--default-padding) 1rem var(--default-padding) var(--default-padding);
+  .btn-search img {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+}
+
+input[type="text"], button {
+  border: 1px solid var(--dark-gray);
+  border-radius: var(--border-radius);
+}
+
+.default-padding {
+  padding: var(--default-padding);
+}
+
+.main-content {
+  padding: var(--default-padding);
+  .articles {
+    max-width: calc(100% - var(--side-banners-width) - (2 * var(--default-padding)));
+    .banner-between-articles {
+      margin: 0 var(--default-margin);
+      display: none;
+    }
+    article {
+      padding: var(--default-padding);
+      h1, h2 {
+        color: var(--blue);
+      }
+      a {
+        text-decoration: none;
+        color: var(--blue);
+      }
+      p {
+        margin: 0 0 var(--default-margin) 0;
+      }
+      .lead-image {
+        float: left;
+        max-width: 100%;
+        height: auto;
+        margin: 0 var(--default-margin) var(--default-margin) 0;
+      }
+    }
+  }
+}
+
+.date {
+  font-weight: bold;
+  margin: var(--default-margin) 0;
+}
+
+.pagination {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: var(--default-margin-2x) 0 var(--default-margin-2x) var(--default-margin);
+  .page-link, .page a, .next a, .last a, .first a, .previous a, span.current {
+    display: inline-block;
+    margin-right: var(--default-margin);
+    padding: 0.2rem 1.4rem;
+    line-height: 3rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    &:hover {
+      background-color: var(--dark-blue);
+    }
+  }
+  span.current {
+    background-color: var(--dark-blue);
+  }
+}
+.page-item {
+  &.disabled {
+    display: none;
+  }
+  &.active {
+    .page-link {
+      background-color: var(--dark-blue);
+    }
+  }
+}
+
+.side-banners {
+  width: calc(var(--side-banners-width) + (2 * var(--default-padding)));
+  .banner-wrapper {
+    padding: var(--default-padding);
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+footer {
+  padding: calc(var(--default-padding) * 2);
+  background-color: var(--dark-gray);
+  text-align: center;
+}
+
+@media screen and (max-width: 1440px) {
+  .main-menu-wrapper {
+    .mobile-menu-opener {
+      display: block;
+    }
+    .main-menu {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .main-content {
+    .side-banners {
+      display: none;
+    }
+    .articles {
+      max-width: 100%;
+      .banner-between-articles {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .site-header-logo {
+    max-width: 280px;
+  }
+  .main-content {
+    .articles {
+      article {
+        .lead-image {
+          max-width: unset;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

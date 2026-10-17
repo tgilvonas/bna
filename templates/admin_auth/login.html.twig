@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    {% trans_default_domain 'admin' %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ 'login'|trans }}</title>
+        <link rel="stylesheet" type="text/css" href="/assets-dist/backend/main.css">
+    </head>
+    <body>
+        <div class="container w-25">
+            <form action="{{ path('admin_login') }}" method="post" class="my-5">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                <div class="mb-3">
+                    <label for="username" class="mb-1">{{ 'email'|trans }}:</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="mb-1">{{ 'password'|trans }}:</label>
+                    <input type="password" id="password" name="_password" class="form-control">
+                </div>
+                <input type="hidden" name="_target_path" value="/admin/dashboard">
+                <button type="submit" class="btn btn-success">{{ 'login'|trans }}</button>
+            </form>
+        </div>
+    </body>
+</html>

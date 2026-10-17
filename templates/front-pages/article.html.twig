@@ -1,0 +1,23 @@
+{% extends 'front-pages.html.twig' %}
+
+{% trans_default_domain 'frontpages' %}
+
+{% block meta_description %}{{ article.articleDescription }}{% endblock %}
+{% block meta_keywords %}{{ article.articleKeywords }}{% endblock %}
+
+{% block body %}
+    <article>
+        {% if article %}
+            <h1>
+                {{ article.articleTitle|e }}
+            </h1>
+            <div class="date">
+                {{ article.date|date('Y-m-d') }}
+            </div>
+            <img src="/uploads/articles/{{ article.imgOriginal }}" alt="{{ article.articleTitle|e }}" class="lead-image"/>
+            {{ article.content|raw }}
+        {% else %}
+            {{ 'page_not_found'|trans }}
+        {% endif %}
+    </article>
+{% endblock %}

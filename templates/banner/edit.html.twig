@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+{% trans_default_domain 'admin' %}
+
+{% block body %}
+    {% if banner.img %}
+        <div class="mb-3">
+            <img src="/uploads/banners/{{ banner.img }}" alt="" style="max-width: 336px;" />
+        </div>
+    {% endif %}
+    {{ form(form) }}
+{% endblock %}

@@ -1,0 +1,66 @@
+create: Sukurti
+edit: Redaguoti
+delete: Ištrinti
+save: Išsaugoti
+login: Prisijungti
+logout: Atsijungti
+email: El. paštas
+password: Slaptažodis
+username: Vartotojo vardas
+admin_panel: Administravimas
+categories: Kategorijos
+articles: Straipsniai
+banners: Baneriai
+there_are_no_records: Įrašų nėra
+actions: Veiksmai
+name: Pavadinimas
+active_male: Aktyvus
+active_female: Aktyvi
+yes: Taip
+no: Ne
+slug: URL segmentas
+description: Aprašymas
+keywords: Raktažodžiai
+ord: Eil. nr.
+are_you_sure_you_want_to_delete: Ar jūs tikrai norite ištrinti šį įrašą?
+record_created: Įrašas sukurtas
+record_updated: Įrašas atnaujintas
+record_deleted: Įrašas ištrintas
+published: Išpublikuotas
+date: Data
+on_first_page: Pirmame puslapyje
+in_new: Atidaryti naujame lange
+image: Paveikslėlis
+file_upload_error_occurred: Įvyko failo įkėlimo klaida
+files_changed: Įkeltas naujas įrašo failas, senas failas ištrintas
+files_deleted: Įrašo failas ištrintas
+has_full_content: Turi pilną turinį
+intro: Intro
+content: Turinys
+category: Kategorija
+select: Pasirinkite
+summary: Santrauka
+admins: Administratoriai
+roles: Rolės
+search_by_words: Paieška pagal žodžius
+date_from: Data nuo
+date_to: Data iki
+clear_search: Valyti paieškos kriterijus
+search: Ieškoti
+all: Visi
+articles_published: Publikuoti straipsniai
+articles_unpublished: Neišpublikuoti straipsniai
+articles_total: Straipsnių viso
+url: URL
+repeat_password: Pakartokite slaptažodį
+password_if_you_want_to_change: Slaptažodis (jei norite pakeisti)
+repeat_password_if_you_want_to_change: Pakartokite slaptažodį (jei norite pakeisti)
+role_super_admin: Super administratorius
+role_editor: Naujienų redaktorius
+role_marketing_manager: Marketingo vadybininkas
+published_articles_by_category: Publikuoti straipsniai pagal kategoriją
+published_articles_by_year: Publikuoti straipsniai pagal metus
+my_profile: Mano profilis
+profile_updated: Jūsų profilis atnaujintas
+articles_amount: Straipsnių kiekis
+tags: Tag'ai
