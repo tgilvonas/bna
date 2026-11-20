@@ -12,18 +12,21 @@
     </head>
     <body>
         {% set categories = category_repo.getAllActive() %}
-        <nav class="mobile-touch-menu">
-            <div class="close-menu-btn-wrapper">
-                <button class="close-mobile-menu">&times;</button>
-            </div>
-            <ul class="">
-                {% for category in categories %}
-                    <li>
-                        <a href="{{ path('category', { 'slug': category.categoryUrl }) }}">{{ category.categoryName }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </nav>
+        <div id="mobile-menu-app">
+            <div class="mobile-menu-backdrop" hidden aria-hidden="true"></div>
+            <nav class="vue-mobile-menu" hidden aria-label="Mobile navigation">
+                <div class="close-menu-btn-wrapper">
+                    <button type="button" class="close-mobile-menu" aria-label="Close menu">&times;</button>
+                </div>
+                <ul>
+                    {% for category in categories %}
+                        <li>
+                            <a href="{{ path('category', { 'slug': category.categoryUrl }) }}">{{ category.categoryName }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
         <div class="main-wrapper">
             <div class="header">
                 <a href="/">
@@ -31,7 +34,7 @@
                 </a>
             </div>
             <div class="main-menu-wrapper display-flex">
-                <button class="mobile-menu-opener">&Congruent;</button>
+                <button id="mobile-menu-opener" type="button" class="mobile-menu-opener" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu-app">&#9776;</button>
                 <ul class="main-menu display-flex">
                     {% for category in categories %}
                         <li>

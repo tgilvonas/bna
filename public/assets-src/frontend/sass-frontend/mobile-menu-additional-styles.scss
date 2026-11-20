@@ -1,15 +1,59 @@
-.mobile-touch-menu {
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.mobile-menu-backdrop.is-open {
+  opacity: 1;
+}
+
+.vue-mobile-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: min(300px, 85vw);
+  overflow-y: auto;
   background: var(--mobile-menu-bg-color);
   background: var(--bg-gradient);
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+}
+
+.vue-mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+.vue-mobile-menu[hidden],
+.mobile-menu-backdrop[hidden] {
+  display: none !important;
+}
+
+.vue-mobile-menu {
   .close-menu-btn-wrapper {
     margin: var(--default-margin);
     text-align: right;
   }
+
+  .close-mobile-menu {
+    color: black;
+  }
+
   ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
     border-top: 1px solid var(--white);
+
     li {
       a {
         display: block;
