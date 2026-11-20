@@ -29,6 +29,9 @@ body {
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   height: 187px;
   background-image: url('/img/bna-header.jpg');
   background-position: right center;
@@ -40,8 +43,12 @@ body {
 }
 
 .main-menu-wrapper {
+  position: sticky;
+  top: 187px;
+  z-index: 30;
   background: rgb(0,0,119);
   background: var(--bg-gradient);
+  box-shadow: 0 var(--default-padding) var(--default-padding) var(--white);
   .mobile-menu-opener {
     display: none;
     width: 34px;
